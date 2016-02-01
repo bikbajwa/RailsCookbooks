@@ -4,4 +4,6 @@ end
 
 gem "rails"
 
-execute "#{Chef::Config[:file_cache_path]}/RailsApp/bin/rails server -b 0.0.0.0"
+execute "Start the rails server" do
+  command "#{Chef::Config[:file_cache_path]}/RailsApp/bin/rails server -b 0.0.0.0"
+end
