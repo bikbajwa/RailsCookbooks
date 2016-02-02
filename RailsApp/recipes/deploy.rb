@@ -1,8 +1,8 @@
-directory "/etc/Rails" do
+directory "/home/bik/Rails" do
   action :create
 end
 
-git "/etc/Rails/RailsApp" do
+git "/home/bik/Rails/RailsApp" do
   repository "https://github.com/bikbajwa/RailsApplication.git"
 end
 
@@ -17,5 +17,5 @@ end
 #gem_package "rails"
 
 execute "Start the rails server" do
-  command "/etc/Rails/RailsApp/bin/rails server -b 0.0.0.0"
+  command "/home/bik/Rails/RailsApp/bin/rails server -b 0.0.0.0"
 end
