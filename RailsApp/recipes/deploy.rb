@@ -3,7 +3,11 @@ git "#{Chef::Config[:file_cache_path]}/RailsApp" do
 end
 
 execute "update RubyGems" do
-  command "gem update --system"
+  command <<-EOF
+    gem install ruby-gems-update
+    update_rubygems
+    gem update --system
+  EOF
 end
 
 gem_package "rails"
