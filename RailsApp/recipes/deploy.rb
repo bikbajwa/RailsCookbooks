@@ -4,6 +4,7 @@ end
 
 git "/home/bik/Rails/RailsApp" do
   repository "https://github.com/bikbajwa/RailsApplication.git"
+  user "bik"
 end
 
 execute "update RubyGems" do
