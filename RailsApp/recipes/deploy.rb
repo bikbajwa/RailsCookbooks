@@ -1,10 +1,9 @@
-directory "/home/bik/Rails" do
+directory "/opt/Rails" do
   action :create
 end
 
-git "/home/bik/Rails/RailsApp" do
+git "/opt/Rails/RailsApp" do
   repository "https://github.com/bikbajwa/RailsApplication.git"
-  user "bik"
 end
 
 execute "update RubyGems" do
@@ -18,5 +17,5 @@ end
 #gem_package "rails"
 
 execute "Start the rails server" do
-  command "/home/bik/Rails/RailsApp/bin/rails server -b 0.0.0.0"
+  command "/opt/Rails/RailsApp/bin/rails server -b 0.0.0.0"
 end
