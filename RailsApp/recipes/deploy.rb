@@ -33,12 +33,6 @@ gem_package 'bundle'
 gem_package 'io-console'
 gem_package 'uglifier'
 
-execute "run bundle" do
-  cwd "/tmp/RailsApplication/current/"
-  command "bundle"
-  action :run
-end
-
 directory "/tmp/RailsApplication/shared/config/" do
   action :create
 end
@@ -53,6 +47,12 @@ deploy "Rails Application" do
   deploy_to "/tmp/RailsApplication"
   #restart_command "rails s -b 0.0.0.0"
   action :deploy
+end
+
+execute "run bundle" do
+  cwd "/tmp/RailsApplication/current/"
+  command "bundle"
+  action :run
 end
 
 cookbook_file "/etc/profile.d/ruby.sh" do
