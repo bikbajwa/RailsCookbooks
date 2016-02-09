@@ -28,7 +28,7 @@ deploy "Rails Application" do
   repo "https://github.com/bikbajwa/RailsApplication.git"
   deploy_to "/tmp/RailsApplication"
   #restart_command "rails s -b 0.0.0.0"
-  symlinks {"config/database.yml" => "config/database.yml"}
+  symlinks "config/database.yml" => "config/database.yml"
   action :deploy
 end
 
