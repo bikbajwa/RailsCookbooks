@@ -20,15 +20,38 @@
 #  command "/opt/Rails/RailsApp/bin/rails server -b 0.0.0.0"
 #end
 
-package ["gcc", "ruby-devel", "zlib-devel", "rubygems", "sqlite-devel"] do
+execute "get the information for yum install nodejs" do
+  command "curl -sL https://rpm.nodesource.com/setup | bash -"
+  action :run
+end
+
+package ["gcc", "ruby-devel", "zlib-devel", "rubygems", "sqlite-devel", "nodejs"] do
   action :install
+end
+
+gem_package 'bundle'
+gem_package 'io-console'
+gem_package 'uglifier'
+
+execute "run bundle" do
+  cwd "/tmp/RailsApplication/current/"
+  command "bundle"
+  action :run
+end
+
+directory "/tmp/RailsApplication/shared/config/" do
+  action :create
+end
+
+cookbook_file "/tmp/RailsApplication/shared/config/database.yml" do
+  source 'database.yml'
+  action :create
 end
 
 deploy "Rails Application" do
   repo "https://github.com/bikbajwa/RailsApplication.git"
   deploy_to "/tmp/RailsApplication"
   #restart_command "rails s -b 0.0.0.0"
-  symlinks "config/database.yml" => "config/database.yml"
   action :deploy
 end
 
