@@ -33,6 +33,13 @@ gem_package 'bundle'
 gem_package 'io-console'
 gem_package 'uglifier'
 
+deploy "Rails Application" do
+  repo "https://github.com/bikbajwa/RailsApplication.git"
+  deploy_to "/tmp/RailsApplication"
+  #restart_command "rails s -b 0.0.0.0"
+  action :deploy
+end
+
 directory "/tmp/RailsApplication/shared/config/" do
   action :create
 end
@@ -40,13 +47,6 @@ end
 cookbook_file "/tmp/RailsApplication/shared/config/database.yml" do
   source 'database.yml'
   action :create
-end
-
-deploy "Rails Application" do
-  repo "https://github.com/bikbajwa/RailsApplication.git"
-  deploy_to "/tmp/RailsApplication"
-  #restart_command "rails s -b 0.0.0.0"
-  action :deploy
 end
 
 execute "run bundle" do
