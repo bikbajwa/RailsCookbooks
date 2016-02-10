@@ -44,7 +44,7 @@ execute "Remove the pids file and start the rails application" do
   cwd "/tmp/RailsApplication/current/"
   command <<-EOF
     rm -f tmp/pids
-    rails s -b 0.0.0 -d
+    rails s -b 0.0.0.0 -d
   EOF
   action :run
 end
