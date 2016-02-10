@@ -31,11 +31,11 @@ cookbook_file "/etc/profile.d/ruby.sh" do
   action :create
 end
 
+# bundle isn't working
 execute "install io-console and run bundle" do
   cwd "/tmp/RailsApplication/current/"
   command <<-EOF
     . /etc/profile.d/ruby.sh
-    gem install io-console
     bundle
   EOF
   action :run
