@@ -8,7 +8,6 @@ package ["gcc", "ruby-devel", "zlib-devel", "rubygems", "sqlite-devel", "nodejs"
 end
 
 gem_package 'bundle'
-gem_package 'io-console' # not working
 gem_package 'uglifier'
 
 deploy "Rails Application" do
@@ -27,9 +26,12 @@ cookbook_file "/tmp/RailsApplication/shared/config/database.yml" do
   action :create
 end
 
-execute "run bundle" do
+execute "install io-console and run bundle" do
   cwd "/tmp/RailsApplication/current/"
-  command "bundle"
+  command <<-EOF
+    gem install io-console
+    bundle
+  EOF
   action :run
 end
 
