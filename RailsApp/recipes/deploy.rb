@@ -26,18 +26,19 @@ cookbook_file "/tmp/RailsApplication/shared/config/database.yml" do
   action :create
 end
 
+cookbook_file "/etc/profile.d/ruby.sh" do
+  source "ruby.sh"
+  action :create
+end
+
 execute "install io-console and run bundle" do
   cwd "/tmp/RailsApplication/current/"
   command <<-EOF
+    . /etc/profile.d/ruby.sh
     gem install io-console
     bundle
   EOF
   action :run
-end
-
-cookbook_file "/etc/profile.d/ruby.sh" do
-  source "ruby.sh"
-  action :create
 end
 
 execute "Remove the pids file and start the rails application" do
