@@ -44,5 +44,5 @@ execute "Remove the pids file and start the rails application" do
     rm -f tmp/pids
     rails s -b 0.0.0 -d
   EOF
-  action :nothing
+  action :execute
 end
