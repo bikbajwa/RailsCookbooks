@@ -1,25 +1,3 @@
-#directory "/opt/Rails" do
-#  action :create
-#end
-
-#git "/opt/Rails/RailsApp" do
-#  repository "https://github.com/bikbajwa/RailsApplication.git"
-#end
-
-#execute "update RubyGems" do
-#  command <<-EOF
-#    gem install ruby-gems-update
-#    update_rubygems
-#    gem update --system
-#  EOF
-#end
-
-#gem_package "rails"
-
-#execute "Start the rails server" do
-#  command "/opt/Rails/RailsApp/bin/rails server -b 0.0.0.0"
-#end
-
 execute "get the information for yum install nodejs" do
   command "curl -sL https://rpm.nodesource.com/setup | bash -"
   action :run
@@ -30,7 +8,7 @@ package ["gcc", "ruby-devel", "zlib-devel", "rubygems", "sqlite-devel", "nodejs"
 end
 
 gem_package 'bundle'
-gem_package 'io-console'
+gem_package 'io-console' # not working
 gem_package 'uglifier'
 
 deploy "Rails Application" do
@@ -58,4 +36,9 @@ end
 cookbook_file "/etc/profile.d/ruby.sh" do
   source "ruby.sh"
   action :create
+end
+
+execute "Remove the pids file" do
+  command "rm -f /tmp/RailsApplication/current/tmp/pids"
+  action :execute
 end
