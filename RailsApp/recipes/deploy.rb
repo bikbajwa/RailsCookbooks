@@ -38,7 +38,11 @@ cookbook_file "/etc/profile.d/ruby.sh" do
   action :create
 end
 
-execute "Remove the pids file" do
-  command "rm -f /tmp/RailsApplication/current/tmp/pids"
-  action :execute
+execute "Remove the pids file and start the rails application" do
+  cwd "/tmp/RailsApplication/current/"
+  command <<-EOF
+    rm -f tmp/pids
+    rails s -b 0.0.0 -d
+  EOF
+  action :nothing
 end
