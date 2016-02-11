@@ -37,7 +37,9 @@ execute "install io-console and run bundle" do
   command <<-EOF
     . /etc/profile.d/ruby.sh
     gem env > gem_env.txt
+    which rails > rails1.txt
     bundle > bundle.txt
+    which rails > rails2.txt
   EOF
   action :run
 end
