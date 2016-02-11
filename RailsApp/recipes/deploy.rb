@@ -36,6 +36,7 @@ execute "install io-console and run bundle" do
   cwd "/tmp/RailsApplication/current/"
   command <<-EOF
     . /etc/profile.d/ruby.sh
+    gem env > gem_env.txt
     bundle
   EOF
   action :run
