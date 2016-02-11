@@ -36,11 +36,7 @@ execute "install io-console and run bundle" do
   cwd "/tmp/RailsApplication/current/"
   command <<-EOF
     . /etc/profile.d/ruby.sh
-    gem env > gem_env.txt
-    which rails > rails1.txt
-    bundle > bundle.txt
-    which rails > rails2.txt
-    whoami > whoami.txt
+    bundle
   EOF
   action :run
 end
@@ -49,7 +45,7 @@ execute "Remove the pids file and start the rails application" do
   cwd "/tmp/RailsApplication/current/"
   command <<-EOF
     . /etc/profile.d/ruby.sh
-    rm -f tmp/pids
+    rm -rf tmp/pids
     rails s -b 0.0.0.0 -d
   EOF
   action :run
