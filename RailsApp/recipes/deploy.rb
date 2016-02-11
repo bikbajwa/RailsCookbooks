@@ -40,6 +40,7 @@ execute "install io-console and run bundle" do
     which rails > rails1.txt
     bundle > bundle.txt
     which rails > rails2.txt
+    whoami > whoami.txt
   EOF
   action :run
 end
