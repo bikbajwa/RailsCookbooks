@@ -48,6 +48,7 @@ end
 execute "Remove the pids file and start the rails application" do
   cwd "/tmp/RailsApplication/current/"
   command <<-EOF
+    . /etc/profile.d/ruby.sh
     rm -f tmp/pids
     #rails s -b 0.0.0.0 -d
   EOF
