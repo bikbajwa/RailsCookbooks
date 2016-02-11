@@ -13,7 +13,7 @@ gem_package 'uglifier'
 deploy "Rails Application" do
   repo "https://github.com/bikbajwa/RailsApplication.git"
   deploy_to "/tmp/RailsApplication"
-  #restart_command "rails s -b 0.0.0.0"
+  restart_command "touch tmp/restart.txt"
   action :deploy
 end
 
