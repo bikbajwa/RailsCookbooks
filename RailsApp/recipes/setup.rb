@@ -3,7 +3,7 @@ execute "get the information for yum install nodejs" do
   action :run
 end
 
-package ["gcc", "ruby-devel", "zlib-devel", "rubygems", "sqlite-devel", "nodejs"] do
+package ["gcc", "ruby-devel", "zlib-devel", "rubygems", "sqlite-devel", "nodejs", "mysql-devel"] do
   action :install
 end
 
