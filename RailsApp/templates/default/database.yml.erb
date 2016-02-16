@@ -1,26 +1,26 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: <%= node[:deploy]['RailsApplication'][:environment_variables][:RDS_DB_NAME] %>
-  username: <%= node[:deploy]['RailsApplication'][:environment_variables][:RDS_USERNAME] %>
-  password: <%= node[:deploy]['RailsApplication'][:environment_variables][:RDS_PASSWORD] %>
-  host: <%= node[:deploy]['RailsApplication'][:environment_variables][:RDS_HOSTNAME] %>
-  port: <%= node[:deploy]['RailsApplication'][:environment_variables][:RDS_PORT] %>
+  database: <%= @database %>
+  username: <%= @username %>
+  password: <%= @password %>
+  host: <%= @host %>
+  port: <%= @port %>
 
 test:
   adapter: mysql2
   encoding: utf8
-  database: <%= node[:deploy]['RailsApplication'][:environment_variables][:RDS_DB_NAME] %>
-  username: <%= node[:deploy]['RailsApplication'][:environment_variables][:RDS_USERNAME] %>
-  password: <%= node[:deploy]['RailsApplication'][:environment_variables][:RDS_PASSWORD] %>
-  host: <%= node[:deploy]['RailsApplication'][:environment_variables][:RDS_HOSTNAME] %>
-  port: <%= node[:deploy]['RailsApplication'][:environment_variables][:RDS_PORT] %>
+  database: <%= @database %>
+  username: <%= @username %>
+  password: <%= @password %>
+  host: <%= @host %>
+  port: <%= @port %>
 
 production:
   adapter: mysql2
   encoding: utf8
-  database: <%= node[:deploy]['RailsApplication'][:environment_variables][:RDS_DB_NAME] %>
-  username: <%= node[:deploy]['RailsApplication'][:environment_variables][:RDS_USERNAME] %>
-  password: <%= node[:deploy]['RailsApplication'][:environment_variables][:RDS_PASSWORD] %>
-  host: <%= node[:deploy]['RailsApplication'][:environment_variables][:RDS_HOSTNAME] %>
-  port: <%= node[:deploy]['RailsApplication'][:environment_variables][:RDS_PORT] %>
+  database: <%= @database %>
+  username: <%= @username %>
+  password: <%= @password %>
+  host: <%= @host %>
+  port: <%= @port %>

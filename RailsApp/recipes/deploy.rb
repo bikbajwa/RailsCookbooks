@@ -11,6 +11,13 @@ end
 
 template "/tmp/RailsApplication/shared/config/database.yml" do
   source 'database.yml.erb'
+  variables({
+    :database => node[:deploy]['RailsApplication'][:environment_variables][:RDS_DB_NAME],
+    :username => node[:deploy]['RailsApplication'][:environment_variables][:RDS_USERNAME],
+    :password => node[:deploy]['RailsApplication'][:environment_variables][:RDS_PASSWORD],
+    :host => node[:deploy]['RailsApplication'][:environment_variables][:RDS_HOSTNAME],
+    :port => node[:deploy]['RailsApplication'][:environment_variables][:RDS_PORT]
+    })
   action :create
 end
 
