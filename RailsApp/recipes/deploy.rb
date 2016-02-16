@@ -12,11 +12,11 @@ end
 template "/tmp/RailsApplication/shared/config/database.yml" do
   source 'database.yml.erb'
   variables({
-    :database => node["deploy"]['railsapplication']["environment_variables"]["rds_db_name"],
-    :username => node["deploy"]['railsapplication']["environment_variables"]["RDS_USERNAME"],
-    :password => node["deploy"]['railsapplication']["environment_variables"]["RDS_PASSWORD"],
-    :host => node["deploy"]['railsapplication']["environment_variables"]["RDS_HOSTNAME"],
-    :port => node["deploy"]['railsapplication']["environment_variables"]["RDS_PORT"]
+    :database => "railsdb",
+    :username => "root",
+    :password => "railspassword",
+    :host => "railsappmysql.crtpkbgpikh9.us-west-1.rds.amazonaws.com",
+    :port => "3306"
     })
   action :create
 end
