@@ -1,32 +1,26 @@
 development:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
-  reconnect: false
-  database: mysql-railsSQL
-  pool: 5
-  username: root
-  password: railspassword
-  host:
-  port:
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
 
 test:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
-  reconnect: false
-  database: mysql-railsSQL
-  pool: 5
-  username: root
-  password: railspassword
-  host:
-  port:
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
 
 production:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
-  reconnect: false
-  database: mysql-railsSQL
-  pool: 5
-  username: root
-  password: railspassword
-  host:
-  port:
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
