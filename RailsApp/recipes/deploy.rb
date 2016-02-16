@@ -9,8 +9,8 @@ directory "/tmp/RailsApplication/shared/config/" do
   action :create
 end
 
-cookbook_file "/tmp/RailsApplication/shared/config/database.yml" do
-  source 'database.yml'
+template "/tmp/RailsApplication/shared/config/database.yml" do
+  source 'database.yml.erb'
   action :create
 end
 
