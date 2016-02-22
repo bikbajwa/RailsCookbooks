@@ -15,7 +15,7 @@ template "/tmp/RailsApplication/shared/config/database.yml" do
     :database => "railsdb",
     :username => "root",
     :password => "railspassword",
-    :host => "railsappmysql.crtpkbgpikh9.us-west-1.rds.amazonaws.com",
+    :host => "railsappdb.crtpkbgpikh9.us-west-1.rds.amazonaws.com",
     :port => "3306"
     })
   action :create
