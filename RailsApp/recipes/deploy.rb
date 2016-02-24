@@ -1,5 +1,5 @@
 deploy "Rails Application" do
-  repo "https://github.com/bikbajwa/RailsApplication.git"
+  repo "https://github.com/bikbajwa/BlogApp.git"
   deploy_to "/tmp/RailsApplication"
   restart_command "touch tmp/restart.txt"
   action :deploy
