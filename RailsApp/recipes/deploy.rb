@@ -12,7 +12,7 @@ end
 template "/tmp/RailsApplication/shared/config/database.yml" do
   source 'database.yml.erb'
   variables({
-    :database => node[:deploy]['blogapplication'][:environment_variables][:RDS_DB_NAME],
+    :database => "railsdb",
     :username => "root",
     :password => "railspassword",
     :host => "railsappdb.crtpkbgpikh9.us-west-1.rds.amazonaws.com",
